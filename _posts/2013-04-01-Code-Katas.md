@@ -6,7 +6,7 @@ tags : [kata, interviews]
 ---
 {% include JB/setup %}
 
-Are code kata;s a useful interview exercise?
+
 
 ## Overview 
 
