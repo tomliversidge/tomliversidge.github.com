@@ -6,8 +6,6 @@ tags : [kata]
 ---
 {% include JB/setup %}
 
-Game Of Life Code Kata
-
 # Summary
 
 Wikipedia summarises the Game Of Life as:
