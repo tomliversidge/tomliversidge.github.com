@@ -1,7 +1,7 @@
 ---
 layout: post
 category : coding
-tagline: "Game Of Life Code Kata"
+tagline: "Code Kata"
 tags : [kata]
 ---
 {% include JB/setup %}
