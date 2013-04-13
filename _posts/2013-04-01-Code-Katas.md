@@ -2,7 +2,7 @@
 layout: post
 category : coding
 tagline: "interview"
-published: false
+published: true
 tags : [kata, interviews]
 ---
 {% include JB/setup %}
