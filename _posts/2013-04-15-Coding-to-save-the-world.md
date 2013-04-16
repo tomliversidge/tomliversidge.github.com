@@ -1,8 +1,9 @@
 ---
 layout: post
-category : coding
-tagline: "world saver"
-tags : [tv]
+category : misc
+tagline: "quickly"
+published: true
+tags : [stargate, writers]
 ---
 {% include JB/setup %}
 
