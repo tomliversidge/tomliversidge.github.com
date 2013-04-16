@@ -1,3 +1,11 @@
+---
+layout: post
+category : coding
+tagline: "world saver"
+tags : [tv]
+---
+{% include JB/setup %}
+
 #How coding is done in totally awesome high stake scenarios
 
 I have someone new to blame for my latest crazy deadline. This time it is Hollywood writers. They have poluted the minds of the common consciousness. This occurred to me watching an episode of Stargate SG1. In this particular episode, Earth was under attack from the Goa'uld Anubis. To cut a long story short, SG1 had to fly the Stargate out into space. There was however, a serious problem. They needed to activate the hyperdrive in-atmosphere, something the sub routine wasn't designed to do. BUT THAT DOESNT MATTER - "we can write and upload a new sub-routine" Colonol Carter enthused. "It will be ready in a couple of minutes". 
