@@ -24,6 +24,6 @@ There are a number of things that Colonol Carter forgot about when promising thi
 
 I'm going to write the sub-module now. 
 
-	CanFlyInAtmosphere = true;
+	InAtmosphereHyperdriveEnabled = true;
 
 WHOO HOO!!! GO SG1! :)
