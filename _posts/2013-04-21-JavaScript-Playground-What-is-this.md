@@ -34,3 +34,10 @@ In this case, 'this' refers to the object. Technically, this is exactly what we 
 	anObject.anotherObject.getThis() === anObject.anotherObject; // true
 
 The important point to take away from this is that the same function is used in all the examples, **but the value of 'this' changes depending on where the function is invoked**. 
+
+##Assigning the function context
+
+Every function has a call and apply method. These methods take a function as the first parameter and apply the context to the passed in function. 
+
+	getThis.call(contextReceiver) === contextReceiver;
+	getThis.apply(contextReceiver) === contextReceiver; 
