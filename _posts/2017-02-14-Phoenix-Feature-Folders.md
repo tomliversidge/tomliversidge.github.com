@@ -10,7 +10,7 @@ tags : [elixir, phoenix]
 After years on the .net platform, I've recently started learning Elixir and Phoenix. One of the practices I want to bring over with me 
 is the concept of Feature Folders in an MVC application.
 
-## Default MVC Folders 
+## Default Phoenix Structure 
 
 By default, Phoenix applications order code by type. For example, all _models_, _views_ and _controllers_ are kept together in their respective folders. Running
 
