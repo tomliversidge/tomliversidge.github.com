@@ -7,12 +7,7 @@ tags : [elixir, phoenix]
 ---
 {% include JB/setup %}
 
-After years on the .net platform, I've recently started learning Elixir and Phoenix. One of the practices I want to bring over with me 
-is the concept of Feature Folders in an MVC application.
-
-## Default Phoenix Structure 
-
-By default, Phoenix applications order code by type. For example, all _models_, _views_ and _controllers_ are kept together in their respective folders. Running
+After years on the .net platform, I've recently started learning Elixir and Phoenix. One thing both .net MVC and Phoenix shared in common is their way of organising code by types. For example, all _models_, _views_ and _controllers_ are kept together in their respective folders. Running
 
 	mix phoenix.new my_app
 	
@@ -22,14 +17,11 @@ results in a folder structure like this:
 	/web/views/
 	/web/controllers/
 
-The advantage of this folder structure is that it is a simple, easy to understand convention and is quite common across platforms. However,  [Christian Weiss](http://www.chwe.at/2014/04/introducing-the-asp.net-mvc-feature-folders-project-structure) asks a great question:
+The advantage of this folder structure is that it is a simple, easy to understand convention and is quite common across platforms. However, ask yourself how often you have a requirement that is to change something in _all_ your controllers, models or views. In my experience, almost never. The default folder structure seems to be optimised for a use case that rarely exists. The larger your project grows, the less sense this makes.
 
-> Which of these requirements is more common?
-> 
-> * Change something in every view, controller or model of your project
-> * Add a new field to your model X, show this field to the user, make it editable, the value must be validated against some fancy rules, …
+Now ask yourself how often you have to add something to an existing _feature_. For example, adding a new field to a model, with some associated business logic, that is displayed in the UI. I'll bet quite often.
 
-In my experience, I can count on one hand the number of times in my career I've wanted to look at all _controllers_ together, or all _models_ together. This type-structure seems to be optimised for a use case that rarely exists. Instead, I want to see the code related to the feature I am working on. 
+So why don't we group related files together by the feature they represent?
 
 ## Feature Folders
 
@@ -50,11 +42,11 @@ When working on, for example, the video viewer functionality, I have  all pieces
 
 So how do you accomplish this in Phoenix? Well, it's very simple, thanks to the extensibility of the framework
 
-# Setting up Phoenix for Feature Folders
+## Setting up Phoenix for Feature Folders
 
 The only change we're going to make is to tell Phoenix to locate the templates for views inside our feature folder. That's it. We're going to use the `video_viewer` feature from above for our example.
 
-## Default Behaviour
+### Default Behaviour
 
 How does Phoenix know where to look for our templates? When we generate a project using `mix phoenix.new` a number of helper files are created for us, one of which is `web.ex`. Inside this is a `view` function:
 
@@ -92,13 +84,13 @@ end
 ```
 As you can see, it takes an atom that defines the function to apply and passes an empty array as the last parameter to `apply/3`. So by having `use MyApp.Web, :view` in our `*_view.ex` files, we are saying "use the view function in web.ex, don't pass in any arguments and use "web/templates" as the root for templates."
 
-## Implementing Feature Folders 
+### Implementing Feature Folders 
 
 In order to have implement our desired behaviour we need to:
 
 * accept some options in our `view` function in `web.ex` and pass them to `Phoenix.View`
 * pass these options in from our `*_view.ex` files
-* hook it together by way of `__apply__/1`
+* hook it together by way of `__using__/1`
 
 Let start by allowing some options to be passed into our `view` function:
 
@@ -139,11 +131,11 @@ We now need to hook this in via the `__using__/1` function in `web.ex`. We can t
     apply(__MODULE__, which, [opts])
   end
 ```
-Again, we maintain backwards compatability by keeping the existing `__using__` definition and adding a new one that expects a tuple of `{which, opts}`. Notice that in our new definition we are passing the options in the final parameter to `apply/3` - these will then get passed to `Phoenix.View` by way of our `view` function above. 
+Again, we maintain backwards compatability by keeping the existing `__using__/1` definition and adding a new one that expects a tuple of `{which, opts}`. Notice that in our new definition we are passing the options in the final parameter to `apply/3` - these will then get passed to `Phoenix.View` by way of our `view` function above. 
 
 With these changes we should now be able to move our code into feature folders! When creating new feature folders, the only thing we need to remember to do is set the `:root` and `:path` options in our view files `use MyApp.Web` call.
 
 
-### Source code
+## Source code
 
 I've made changes to the `rumbl` app from Programming Phoenix at https://github.com/tomliversidge/elixir-rumbl 
