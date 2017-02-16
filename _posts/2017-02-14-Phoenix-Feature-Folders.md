@@ -146,4 +146,4 @@ With these changes we should now be able to move our code into feature folders! 
 
 ### Source code
 
-I've made changes to the `rumbl` app from Programming Phoenix at https://github.com/tomliversidge/elixir-rumbl 
+I've made changes to the `rumbl` app from Programming Phoenix at https://github.com/tomliversidge/elixir-rumbl
