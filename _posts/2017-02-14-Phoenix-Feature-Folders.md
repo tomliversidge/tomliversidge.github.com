@@ -7,8 +7,6 @@ tags : [elixir, phoenix]
 ---
 {% include JB/setup %}
 
-# Implementing Feature Folders in Phoenix
-
 After years on the .net platform, I've recently started learning Elixir and Phoenix. One of the practices I want to bring over with me 
 is the concept of Feature Folders in an MVC application.
 
