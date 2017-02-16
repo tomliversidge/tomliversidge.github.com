@@ -1,13 +1,13 @@
 ---
 layout: post
 category : phoenix
-tagline: "phoenix feature folders"
+tagline: ""
 published: true
 tags : [elixir, phoenix]
 ---
 {% include JB/setup %}
 
-#Implementing Feature Folders in Phoenix
+# Implementing Feature Folders in Phoenix
 
 After years on the .net platform, I've recently started learning Elixir and Phoenix. One of the practices I want to bring over with me 
 is the concept of Feature Folders in an MVC application.
@@ -56,7 +56,7 @@ So how do you accomplish this in Phoenix? Well, it's very simple, thanks to the 
 
 The only change we're going to make is to tell Phoenix to locate the templates for views inside our feature folder. That's it. We're going to use the `video_viewer` feature from above for our example.
 
-##Default Behaviour
+## Default Behaviour
 
 How does Phoenix know where to look for our templates? When we generate a project using `mix phoenix.new` a number of helper files are created for us, one of which is `web.ex`. Inside this is a `view` function:
 
@@ -146,6 +146,6 @@ Again, we maintain backwards compatability by keeping the existing `__using__` d
 With these changes we should now be able to move our code into feature folders! When creating new feature folders, the only thing we need to remember to do is set the `:root` and `:path` options in our view files `use MyApp.Web` call.
 
 
-###Source code
+### Source code
 
 I've made changes to the `rumbl` app from Programming Phoenix at https://github.com/tomliversidge/elixir-rumbl 
